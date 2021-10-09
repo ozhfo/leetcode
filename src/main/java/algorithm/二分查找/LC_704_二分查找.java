@@ -27,10 +27,10 @@ package algorithm.二分查找;
 
 import com.alibaba.fastjson.JSON;
 
-public class LC_704 {
+public class LC_704_二分查找 {
 
     public static void main(String[] args) {
-        LC_704 lc = new LC_704();
+        LC_704_二分查找 lc = new LC_704_二分查找();
         int nums[] = new int[]{-1,0,3,5,9,12};
         int target = 6;
         System.out.println("数组是 " + JSON.toJSONString(nums));
@@ -45,9 +45,9 @@ public class LC_704 {
      * @return
      */
     private int binarySearch(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+        int left = 0, right = nums.length - 1;
         while(left <= right){
+            // 防越界
             int middle = left + (right - left) / 2;
             if(nums[middle] > target){
                 right = middle - 1;
@@ -59,6 +59,8 @@ public class LC_704 {
         }
         return -1;
     }
+
+
 
     /**
      * 递归版本

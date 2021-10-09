@@ -24,10 +24,10 @@ package algorithm.二分查找;
 
 import com.alibaba.fastjson.JSON;
 
-public class LC_35 {
+public class LC_35_搜索插入位置 {
 
     public static void main(String[] args) {
-        LC_35 lc = new LC_35();
+        LC_35_搜索插入位置 lc = new LC_35_搜索插入位置();
         int nums[] = new int[]{1, 3};
         int target = 0;
         System.out.println("数组是 " + JSON.toJSONString(nums));
@@ -38,21 +38,16 @@ public class LC_35 {
     }
 
     /**
-     * 二分查找
-     * [1,3] 0
-     * 测试边界
-     * 考虑往最左插入、最右插入、最左相等、最右相等、中间插入、中间相等
-     * right = mid - 1 可能为负数 mid = 0
-     * left = mid + 1 会不会超过数组界限呢
-     * 最外层限定了 left < right
-     *
+     * 左侧版本
+     * 0.right = nums.length - 1
+     * 1.left < right
+     * 2.自己处理边界问题
      * @param nums
      * @param target
      * @return
      */
     public int searchInsert(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+        int left = 0, right = nums.length - 1;
         while (left < right) {
             int mid = (right - left) / 2 + left;
             if (nums[mid] > target) {
@@ -63,12 +58,49 @@ public class LC_35 {
                 return mid;
             }
         }
+        // 从while出来之后的几种情况
+        //一种直接return
+        //一种在left左边 1 3 5 target = 2 left = 0 return left + 1
+        //一种在left的右边 1 3 5 target = 0 left = 0 return left
         return nums[left] < target ? left + 1 : left;
     }
 
-    public int searchInsert11(int[] nums, int target) {
+    /**
+     * 左侧查找的模板
+     * 0.right = nums.length
+     * 1.right = mid
+     * 这种不需要处理边界问题 因为right不动 只有left+1了 那么就是left
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int searchInsert2(int[] nums, int target) {
         int left = 0;
-        int right = nums.length - 1;
+        int right = nums.length;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] >= target) {
+                // right不减一
+                right = mid;
+            } else {
+                // 只有小于的时候才会加1
+                // 如果没发生加1 那就是当前
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+
+    /**
+     * 左侧版本用常规思路来写
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int searchInsert11(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
         while (left <= right) {
             int mid = (right - left) / 2 + left;
             if (nums[mid] > target) {
@@ -83,25 +115,6 @@ public class LC_35 {
 
     }
 
-    /**
-     * right = mid 不做减一处理
-     *
-     * @param nums
-     * @param target
-     * @return
-     */
-    public int searchInsert2(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length;
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (nums[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    }
+
 
 }

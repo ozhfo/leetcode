@@ -12,34 +12,18 @@ package algorithm.二分查找;
 //,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。
 //
 // 给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的索引，否则返回 -1 。
-//
-//
-//
-// 示例 1：
-//
-//
+
 //输入：nums = [4,5,6,7,0,1,2], target = 0
 //输出：4
-//
-//
-// 示例 2：
-//
-//
+
 //输入：nums = [4,5,6,7,0,1,2], target = 3
 //输出：-1
-//
-// 示例 3：
-//
+
 //
 //输入：nums = [1], target = 0
 //输出：-1
 //
-//
-//
-//
-// 提示：
-//
-//
+
 // 1 <= nums.length <= 5000
 // -10^4 <= nums[i] <= 10^4
 // nums 中的每个值都 独一无二
@@ -55,7 +39,7 @@ package algorithm.二分查找;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class LC_33 {
+class LC_33_搜索旋转排序数组 {
 
     public static void main(String[] args) {
 

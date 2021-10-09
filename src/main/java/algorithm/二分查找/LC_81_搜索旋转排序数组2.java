@@ -33,11 +33,11 @@ package algorithm.二分查找;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class LC_81 {
+class LC_81_搜索旋转排序数组2 {
 
     public static void main(String[] args) {
         int [] nums = {7,8,8,9,1,2,4,4,6};
-        LC_81 main = new LC_81();
+        LC_81_搜索旋转排序数组2 main = new LC_81_搜索旋转排序数组2();
         main.search(nums, 5);
     }
 
