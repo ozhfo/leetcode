@@ -32,6 +32,18 @@ public class ArrayUtil {
         System.out.println("\n");
     }
 
+    /**
+     * @param start
+     * @param intervals
+     */
+    public static void printArray(char[] intervals, String start) {
+        System.out.println(start);
+        for (char a : intervals) {
+            System.out.print(a + " ");
+        }
+        System.out.println("\n");
+    }
+
     public static void swap(int[] num, int left, int right) {
         if(left != right) {
             int temp = num[left];

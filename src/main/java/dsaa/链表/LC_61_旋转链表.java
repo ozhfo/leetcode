@@ -1,5 +1,7 @@
 package dsaa.链表;
 
+import util.ListNode;
+
 /**
  * User: sam_zhan
  * DateTime: 2021/9/21 9:16 下午
